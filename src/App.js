@@ -1,20 +1,16 @@
 import * as React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import AppBar from './layout/AppBar'
 import SideBar from './layout/SideBar'
+import GroupRoutes from './layout/GroupRoutes'
 import { GroupProvider } from './components/ContextComponent'
 
-const Item = styled(Paper)(({ theme }) => ({
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));
 
-const SidePiece = styled(Paper)(({ theme }) => ({
+const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
   padding: theme.spacing(1),
   textAlign: 'center',
@@ -28,6 +24,7 @@ const ContainerPaper = styled(Paper)(({ theme }) => ({
 }));
 
 export default function App() {
+
   return (
     <GroupProvider>  
     <ContainerPaper>
@@ -44,25 +41,7 @@ export default function App() {
                 <SideBar/>
               </Grid>
               {/* right side */}
-              <Grid item xs={12} sm={8} md={9}>
-                <Grid container direction="column">
-                  {/* HERO */}
-                  <Grid item xs={12}>
-                    <SidePiece>Hero</SidePiece>
-                  </Grid>
-                  {/* MAIN CONTENT */}
-                  <Grid item xs={12}>
-                    <Grid container>
-                      <Grid item xs={12} md={7}>
-                        <SidePiece>Feed</SidePiece>
-                      </Grid>
-                      <Grid item xs={12} md={5}>
-                        <SidePiece>About</SidePiece>
-                      </Grid>
-                    </Grid>
-                  </Grid>
-                </Grid>
-              </Grid>
+              <GroupRoutes/>
             </Grid>
         </Grid>
       </Grid>
