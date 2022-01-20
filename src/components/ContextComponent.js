@@ -43,6 +43,7 @@ const initialState = () => {
       {
         collection:[],
         name: "Cattle Ranchers",
+        about: "Ranching is the practice of raising herds of animals on large tracts of land. Ranchers commonly raise grazing animals such as cattle and sheep. ... Cowboys are responsible for herding and maintaining the health of animals across these vast ranches. Cowboys often work with horses to herd cattle and sheep.",
         members:[],
         query: "cows",
         bla: "35 mins ago",
@@ -51,6 +52,7 @@ const initialState = () => {
       {
         collection:[],
         name: "Wild Horses",
+        about: "Today, 86,000 free-roaming horses live on nearly 28 million acres of public lands across 10 western U.S. states, and 55,000 taken off the land now live in government-run quarters. With no natural predators, their numbers are growing by 15 to 20 percent each year, according to the bureau.",
         members:[],
         query: "horses",
         bla: "2 hours ago",

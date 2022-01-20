@@ -6,16 +6,9 @@ import GroupFeed from './GroupFeed';
 import GroupAbout from './GroupAbout';
 import { styled } from '@mui/material/styles';
 
-const SidePiece = styled(Paper)(({ theme }) => ({
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));
 
 export default function GroupPage({group}){
   const { pic, name, members } = group;
-  console.log("do we have members?", members)
   return (
     <Grid item xs={12} sm={8} md={9}>
     <Grid container direction="column">
@@ -27,7 +20,7 @@ export default function GroupPage({group}){
       <Grid item xs={12}>
         <Grid container>
           <GroupFeed media={group.collection}/>
-          <GroupAbout media={group.collection}/>
+          <GroupAbout about={group.about} media={group.collection}/>
         </Grid>
       </Grid>
     </Grid>

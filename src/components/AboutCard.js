@@ -15,7 +15,7 @@ const bull = (
   </Box>
 );
 
-export default function AboutCard() {
+export default function AboutCard({about}) {
   return (
     <Card sx={{ width: '100%', maxWidth: 400, marginTop: 2 }}>
       <CardContent>
@@ -29,11 +29,7 @@ export default function AboutCard() {
           Cattle Ranchers
         </Typography>
         <Typography variant="body2">
-          This impressive paella is a perfect 
-          party dish and a fun meal to cook together with your guests. 
-          Add 1 cup of frozen peas along with the mussels, if you like.
-          <br />
-          {'"a benevolent smile"'}
+          {about}
         </Typography>
       </CardContent>
       <CardActions>
