@@ -26,8 +26,8 @@ export default function GroupPage({group}){
       {/* MAIN CONTENT */}
       <Grid item xs={12}>
         <Grid container>
-          <GroupFeed/>
-          <GroupAbout/>
+          <GroupFeed media={group.collection}/>
+          <GroupAbout media={group.collection}/>
         </Grid>
       </Grid>
     </Grid>

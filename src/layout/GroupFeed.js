@@ -3,14 +3,15 @@ import { useGroupContext } from '../components/ContextComponent'
 import Grid from '@mui/material/Grid';
 import Post from '../components/Post'
 
-export default function GroupFeed(){
+export default function GroupFeed({media}){
 
   const {state,dispatch} = useGroupContext();
 
   const buildPosts = () => {
-    return state.groups[0].members.map((member) => {
+    console.log("sissy",state.groups)
+    return state.groups[0].members.map((member,i) => {
       const { image, firstname, lastname } = member;
-      return <Post pic={image} first={firstname} last={lastname}/>
+      return <Post pic={image} media={media[i]} first={firstname} last={lastname}/>
     })
   }
   return (

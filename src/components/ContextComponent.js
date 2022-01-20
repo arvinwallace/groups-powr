@@ -4,11 +4,11 @@ const GroupContext = React.createContext()
 
 function groupReducer(state, action) {
   switch (action.type) {
-    case 'newPics': {
-      // const groupsCopy = [...state.groups]
-      // groupsCopy[action.index].pic = action.pic
-      // console.log("whass index", action.index)
-      // return {...state, groups:groupsCopy}
+    case 'GOT_PICKS': {
+      const groupsCopy = [...state.groups]
+      console.log("picsy", action.pics)
+      groupsCopy[action.index].collection = action.pics
+      return {...state, groups:groupsCopy}
     }
     case 'got users':{
       const newGroups = state.groups.map(group => {
@@ -41,6 +41,7 @@ const initialState = () => {
     currentUser:{},
     groups: [
       {
+        collection:[],
         name: "Cattle Ranchers",
         members:[],
         query: "cows",
@@ -48,6 +49,7 @@ const initialState = () => {
         pic: "https://images.unsplash.com/photo-1500595046743-cd271d694d30?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNzc0NDB8MHwxfHNlYXJjaHwxfHxjb3dzfGVufDB8fHx8MTY0MjU0MTE3Nw&ixlib=rb-1.2.1&q=80&w=1080"
       },
       {
+        collection:[],
         name: "Wild Horses",
         members:[],
         query: "horses",

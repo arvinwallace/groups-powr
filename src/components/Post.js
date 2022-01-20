@@ -27,7 +27,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function Post({ pic, first, last }) {
+export default function Post({ pic, first, last, media }) {
   const [expanded, setExpanded] = React.useState(false);
 // console.log(pic)
   const handleExpandClick = () => {
@@ -51,7 +51,7 @@ export default function Post({ pic, first, last }) {
       <CardMedia
         component="img"
         height="294"
-        src="https://images.unsplash.com/photo-1642425149819-af1b803b2b25?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
+        src={media}
         alt="Paella dish"
       />
       <CardContent>

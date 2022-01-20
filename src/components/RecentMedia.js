@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 
 const pic = "https://images.unsplash.com/photo-1642425149819-af1b803b2b25?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
 
-export default function RecentMedia() {
+export default function RecentMedia({media}) {
   return (
     
     <Card sx={{ width:'100%', maxWidth: 400, alignSelf:'center', marginTop:'20px', padding: '20px' }}>
@@ -22,7 +22,7 @@ export default function RecentMedia() {
             <CardMedia
               component="img"
               height="140"
-              src={pic}
+              src={media[0]}
               alt="green iguana"
             />
           </Card>
@@ -32,7 +32,7 @@ export default function RecentMedia() {
             <CardMedia
               component="img"
               height="140"
-              src={pic}
+              src={media[1]}
               alt="green iguana"
             />
           </Card>
@@ -42,7 +42,7 @@ export default function RecentMedia() {
             <CardMedia
               component="img"
               height="140"
-              src={pic}
+              src={media[2]}
               alt="green iguana"
             />
           </Card>
@@ -52,7 +52,7 @@ export default function RecentMedia() {
             <CardMedia
               component="img"
               height="140"
-              src={pic}
+              src={media[3]}
               alt="green iguana"
             />
           </Card>

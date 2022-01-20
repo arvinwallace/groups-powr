@@ -7,6 +7,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import LockIcon from '@mui/icons-material/Lock';
+import LoadingButton from '@mui/lab/LoadingButton';
 import AvatarSnake from './AvatarSnake';
 
 export default function HeroCard({image, groupName, members}) {
@@ -25,7 +26,7 @@ export default function HeroCard({image, groupName, members}) {
     if(members.length < 10){
       setButtonText({join:"Join Group", member: "Not a Member"})
     }
-  }, [groupName])
+  }, [members.length, groupName])
 
   const toggleMembership = () => {
     if(memberNumbers < 10) {
@@ -59,17 +60,28 @@ export default function HeroCard({image, groupName, members}) {
         src={image}
         alt="green iguana"
       />
-      <CardContent>
-        <Typography sx={{ marginBottom:'0px' }} gutterBottom variant="h3" component="div">
-          {groupName}
-        </Typography>
-        <div style={{display:'flex', alignItems:'center', marginTop:'5px'}}>
-          <span><LockIcon/></span>
-          <span style={{marginRight:'10px', color:'#888', fontSize:'16px'}}>Private Group</span>
-          <span style={{color:'#444', fontSize:'16px'}}>{memberNumbers}</span>
-        </div>
-        <AvatarSnake numbers={memberNumbers} members={groupMembers}/>
-      </CardContent>
+
+          <CardContent>
+            <Typography sx={{ marginBottom:'0px' }} gutterBottom variant="h3" component="div">
+              {groupName}
+            </Typography>
+            {
+              members.length ? 
+                <>
+                  <div style={{display:'flex', alignItems:'center', marginTop:'5px'}}>
+                    <span><LockIcon/></span>
+                    <span style={{marginRight:'10px', color:'#888', fontSize:'16px'}}>Private Group</span>
+                    <span style={{color:'#444', fontSize:'16px'}}>{memberNumbers}</span>
+                  </div>
+                  <AvatarSnake numbers={memberNumbers} members={groupMembers}/>
+                </>
+              :
+                <LoadingButton loading variant="outlined">
+                  Loading
+                </LoadingButton>
+            }
+          </CardContent>
+
       <CardActions>
         <Button variant="outlined">{buttonText.member}</Button>
         <Button onClick={toggleMembership} variant="contained">{buttonText.join}</Button>

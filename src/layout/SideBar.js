@@ -18,7 +18,7 @@ export default function SideBar(){
 
   console.log("GroupCard rendered", state.currentUser)
 
-  // useGroupPic(state,dispatch)
+  useGroupPic(state,dispatch)
   useGetUsers(dispatch)
 
   const buildGroupCards = () => {
