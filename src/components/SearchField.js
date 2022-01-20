@@ -4,6 +4,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Autocomplete from '@mui/material/Autocomplete';
 import InputAdornment from '@mui/material/InputAdornment';
 import SearchIcon from '@mui/icons-material/Search';
+import { useGroupContext } from '../components/ContextComponent'
 import { borderRadius } from '@mui/system';
 
 const theme = createTheme({
@@ -20,10 +21,12 @@ const theme = createTheme({
 });
 
 export default function FreeSolo() {
+  const {state, dispatch} = useGroupContext();
+  console.log(state.groups)
   return (
     <Autocomplete
         disableClearable
-        options={top100Films.map((option) => option.title)}
+        options={state.groups.map((option) => option.name)}
         renderInput={(params) => (
           <ThemeProvider theme={theme}>
           <TextField
@@ -44,11 +47,3 @@ export default function FreeSolo() {
         />
   );
 }
-
-const top100Films = [
-  { title: 'The Shawshank Redemption', year: 1994 },
-  { title: 'The Godfather', year: 1972 },
-  { title: 'The Godfather: Part II', year: 1974 },
-  { title: 'The Dark Knight', year: 2008 },
-  { title: '12 Angry Men', year: 1957 }
-]

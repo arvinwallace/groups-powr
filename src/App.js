@@ -26,6 +26,7 @@ const ContainerPaper = styled(Paper)(({ theme }) => ({
 export default function App() {
 
   return (
+    <BrowserRouter>
     <GroupProvider>  
     <ContainerPaper>
       <Grid container direction="column" spacing={1}>
@@ -47,5 +48,6 @@ export default function App() {
       </Grid>
       </ContainerPaper>
       </GroupProvider>
+      </BrowserRouter>
   );
 }

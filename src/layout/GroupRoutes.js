@@ -1,6 +1,7 @@
 import React,{Fragment} from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useGroupContext } from '../components/ContextComponent';
+import SideBar from '../layout/SideBar';
 import GroupPage from './GroupPage';
 
 export default function GroupRoutes(){
@@ -13,12 +14,10 @@ export default function GroupRoutes(){
       )
     })
   }
-  return (
-      <BrowserRouter>
+  return (  
         <Routes>
           {buildGroupRoutes()}
           <Route path="/" element={<GroupPage group={state.groups[0]}/>} />
         </Routes>
-      </BrowserRouter>
   )
 }

@@ -27,9 +27,9 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function Post() {
+export default function Post({ pic, first, last }) {
   const [expanded, setExpanded] = React.useState(false);
-
+// console.log(pic)
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
@@ -38,16 +38,14 @@ export default function Post() {
     <Card sx={{ maxWidth: 600, marginTop: 2, marginRight: 1, marginLeft: 1 }}>
       <CardHeader
         avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
-          </Avatar>
+          <Avatar alt={first} src={pic}/>
         }
         action={
           <IconButton aria-label="settings">
             <MoreVertIcon />
           </IconButton>
         }
-        title="Shrimp and Chorizo Paella"
+        title={first}
         subheader="September 14, 2016"
       />
       <CardMedia

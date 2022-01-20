@@ -16,10 +16,10 @@ const BarContainer = styled(Paper)(({ theme }) => ({
 export default function SideBar(){
   const {state, dispatch} = useGroupContext();
 
-  console.log("GroupCard rendered")
+  console.log("GroupCard rendered", state.currentUser)
 
   // useGroupPic(state,dispatch)
-  useGetUsers("hello")
+  useGetUsers(dispatch)
 
   const buildGroupCards = () => {
     return state.groups.map((group,i) => {

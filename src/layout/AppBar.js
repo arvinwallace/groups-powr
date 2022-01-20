@@ -11,6 +11,7 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import { useGroupContext } from '../components/ContextComponent'
 
 const pages = ['Home', 'Gaming', 'News'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -18,6 +19,10 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+  const {state, dispatch} = useGroupContext();
+  const { currentUser } = state;
+  const { image, firstname, lastname } = currentUser;
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -104,9 +109,10 @@ const ResponsiveAppBar = () => {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
+            <span style={{marginRight: '8px', fontSize:'18px'}}>{firstname}</span>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt="Remy Sharp" src={image} />
               </IconButton>
             </Tooltip>
             <Menu
