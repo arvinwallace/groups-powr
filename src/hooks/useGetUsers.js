@@ -4,7 +4,7 @@ const GETTHINGS = "eOVbpynjP8jGQ8OgMX2R4u_jjHXdqTpwgDplqmC4S7Q";
 const count = 15;
 const apiUrl = `https://api.unsplash.com/search/photos?client_id=${GETTHINGS}&count=${count}&page=1&query=headshot`
 
-export function useGetUsers(dispatch){
+export function useGetUsers(state,dispatch){
   useEffect(async () => {
     try {
       const results = await fetch('https://fakerapi.it/api/v1/persons?_quantity=10')
@@ -19,15 +19,13 @@ export function useGetUsers(dispatch){
         user.image = photosArray.results[i].urls.regular
         return user;
       })
-      console.log("Yousers", normalizedUsers)
-
         dispatch({
-          type: 'got users',
-          payload: users.data
+          type: 'GOT_USERS',
+          payload: normalizedUsers
         })
       } catch (error) {
         console.log('Unsplash ERROR', error)
       }
 
-  },[])
+  },[state.groups.length])
 }

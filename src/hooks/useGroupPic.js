@@ -21,5 +21,5 @@ export function useGroupPic(state,dispatch){
         console.log('Unsplash ERROR', error)
       }
     })
-  },[])
+  },[state.groups.length])
 }

@@ -27,27 +27,27 @@ export default function App() {
 
   return (
     <BrowserRouter>
-    <GroupProvider>  
-    <ContainerPaper>
-      <Grid container direction="column" spacing={1}>
-      {/* header */}
-        <Grid item xs={12}>
-          <AppBar>Header</AppBar>
-        </Grid>
-        {/* body */}
-        <Grid item xs={12}>
-            <Grid container>
-              {/* left side */}
-              <Grid item xs={12} sm={4} md={3}>
-                <SideBar/>
-              </Grid>
-              {/* right side */}
-              <GroupRoutes/>
+      <GroupProvider>  
+        <ContainerPaper>
+          <Grid container direction="column" spacing={1}>
+          {/* header */}
+            <Grid item xs={12}>
+              <AppBar>Header</AppBar>
             </Grid>
-        </Grid>
-      </Grid>
-      </ContainerPaper>
-      </GroupProvider>
+            {/* body */}
+            <Grid item xs={12}>
+                <Grid container>
+                  {/* left side */}
+                  <Grid item xs={12} sm={4} md={3}>
+                    <SideBar/>
+                  </Grid>
+                  {/* right side */}
+                  <GroupRoutes/>
+                </Grid>
+            </Grid>
+          </Grid>
+          </ContainerPaper>
+        </GroupProvider>
       </BrowserRouter>
   );
 }

@@ -9,6 +9,7 @@ import Typography from '@mui/material/Typography';
 import LockIcon from '@mui/icons-material/Lock';
 import LoadingButton from '@mui/lab/LoadingButton';
 import AvatarSnake from './AvatarSnake';
+import NewGroupButton from './NewGroupModal';
 
 export default function HeroCard({image, groupName, members}) {
 
@@ -31,7 +32,7 @@ export default function HeroCard({image, groupName, members}) {
   const toggleMembership = () => {
     if(memberNumbers < 10) {
       dispatch({
-        type: 'add member',
+        type: 'ADD_MEMBER',
         payload: groupName
       })
       setMemberNumbers(prev => prev + 1)
@@ -39,7 +40,7 @@ export default function HeroCard({image, groupName, members}) {
       setButtonText({join:"Leave Group", member: "Member"})
     } else {
       dispatch({
-        type: 'toggle member',
+        type: 'TOGGLE_MEMBERS',
         payload: groupName
       })
       setMemberNumbers(prev => prev - 1)
@@ -85,6 +86,7 @@ export default function HeroCard({image, groupName, members}) {
       <CardActions>
         <Button variant="outlined">{buttonText.member}</Button>
         <Button onClick={toggleMembership} variant="contained">{buttonText.join}</Button>
+        <NewGroupButton/>
       </CardActions>
     </Card>
   );

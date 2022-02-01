@@ -15,7 +15,7 @@ const bull = (
   </Box>
 );
 
-export default function AboutCard({about}) {
+export default function AboutCard({about, name}) {
   return (
     <Card sx={{ width: '100%', maxWidth: 400, marginTop: 2 }}>
       <CardContent>
@@ -26,7 +26,7 @@ export default function AboutCard({about}) {
           About
         </Typography>
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          Cattle Ranchers
+          {name}
         </Typography>
         <Typography variant="body2">
           {about}

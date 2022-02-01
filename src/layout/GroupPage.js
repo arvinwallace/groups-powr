@@ -20,7 +20,7 @@ export default function GroupPage({group}){
       <Grid item xs={12}>
         <Grid container>
           <GroupFeed media={group.collection}/>
-          <GroupAbout about={group.about} media={group.collection}/>
+          <GroupAbout name={group.name} about={group.about} media={group.collection}/>
         </Grid>
       </Grid>
     </Grid>

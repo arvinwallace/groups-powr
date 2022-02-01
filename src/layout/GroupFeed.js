@@ -11,7 +11,7 @@ export default function GroupFeed({media}){
     console.log("sissy",state.groups)
     return state.groups[0].members.map((member,i) => {
       const { image, firstname, lastname } = member;
-      return <Post pic={image} media={media[i]} first={firstname} last={lastname}/>
+      return <Post key={`${firstname}${i}`} pic={image} media={media[i]} first={firstname} last={lastname}/>
     })
   }
   return (

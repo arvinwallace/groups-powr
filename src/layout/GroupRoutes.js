@@ -7,6 +7,10 @@ import GroupPage from './GroupPage';
 export default function GroupRoutes(){
   const {state, dispatch} = useGroupContext();
 
+
+// Building routes dynamically here to allow for the possibility
+// of adding new user generated groups to get routed.
+
   const buildGroupRoutes = () => {
     return state.groups.map((group) => {
       return (

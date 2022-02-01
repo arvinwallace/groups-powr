@@ -10,7 +10,7 @@ export default function AvatarSnake({members}){
       {
         members.map(member => {
           return (
-            <Avatar style={{marginRight:'-5px'}} alt={"av"} src={member.image}/>
+            <Avatar key={member.image} style={{marginRight:'-5px'}} alt={"av"} src={member.image}/>
           )
         })
       }
